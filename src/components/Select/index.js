@@ -26,6 +26,7 @@ class KnackSelect extends Component {
       <Select defaultValue={this.state.selectedCategory} style={{ width: 120 }} 
               value={this.state.selectedCategory}
               onChange={this.onChange.bind(this)}>
+        {this.state.selectedCategory !== 'Categories' ? <Option value="">All Categories</Option> : null }
         <Option value="Graphic">Graphic</Option>
         <Option value="Vlog">Vlog</Option>
         <Option value="Art" >Art</Option>

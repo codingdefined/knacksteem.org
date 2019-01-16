@@ -10,7 +10,7 @@ import SteemConnect from '../../services/SteemConnect';
 import Logo from '../../assets/images/logo_black.png';
 import KnackSelect from '../../components/Select';
 import KnackSearch from '../../components/Search';
-import {getArticlesByCategory} from '../../actions/articles';
+import {getArticlesModeration} from '../../actions/articles';
 const {Header} = Layout;
 
 class KnackHeader extends React.Component {
@@ -29,8 +29,14 @@ class KnackHeader extends React.Component {
     this.setState({
       selectedCategory: selectedCategory
     });
-    const {dispatch} = this.props;
-    dispatch(getArticlesByCategory(selectedCategory));
+    const {dispatch, location} = this.props;
+    dispatch(getArticlesModeration(
+      location.pathname,
+      0,
+      '',
+      '',
+      selectedCategory
+    ))
   }
 
   handleHeaderToggle(){ 
